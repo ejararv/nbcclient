@@ -1,6 +1,5 @@
 import React from "react";
-
-const BASE_URL = "http://api.nbp.pl/api/exchangerates/tables/";
+import { CurrencyList } from "./CurrencyList";
 
 class CurrencyClass extends React.Component {
   constructor(props) {
@@ -33,11 +32,21 @@ class CurrencyClass extends React.Component {
           <th key={`${item.table}${no}`}>
             <div>
               <div>
-                {item.effectiveDate}
+                Data publikacji: {item.effectiveDate}
                 <div>
                   {item.rates.map((data) => (
                     <div>
-                      {data.currency} {data.code} {data.mid}
+                      <CurrencyList 
+                      key={data.id}
+                        name={data.currency.toUpperCase()}
+                        kod={data.code}
+                        mid={data.mid}
+                       
+                      >
+                       
+                      </CurrencyList>
+
+                      {/* Nazwa waluty:{data.currency},Kod waluty  {data.code}, Kurs średni waluty{data.mid} */}
                     </div>
                   ))}
                 </div>
