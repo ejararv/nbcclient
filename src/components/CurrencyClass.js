@@ -25,18 +25,20 @@ class CurrencyClass extends React.Component {
       });
   }
 
+ 
+
   render() {
     return (
-      <div>
+      <div className="App-header">
         {this.state.currencies.map((item, no) => (
           <th key={`${item.table}${no}`}>
             <div>
               <div>
                 Data publikacji: {item.effectiveDate}
-                <div>
+                <div className="wrapper">
                   {item.rates.map((data) => (
                     <div>
-                      <CurrencyList 
+                      <CurrencyList  style={{ display: "flex"}}
                       key={data.id}
                         name={data.currency.toUpperCase()}
                         kod={data.code}
