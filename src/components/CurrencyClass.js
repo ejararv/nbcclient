@@ -1,5 +1,6 @@
 import React from "react";
 import { CurrencyList } from "./CurrencyList";
+import Card from './Card'
 
 class CurrencyClass extends React.Component {
   constructor(props) {
@@ -29,7 +30,7 @@ class CurrencyClass extends React.Component {
 
   render() {
     return (
-      <div className="App-header">
+      <div >
         {this.state.currencies.map((item, no) => (
           <th key={`${item.table}${no}`}>
             <div>
@@ -38,7 +39,7 @@ class CurrencyClass extends React.Component {
                 <div className="wrapper">
                   {item.rates.map((data) => (
                     <div>
-                      <CurrencyList  style={{ display: "flex"}}
+                      <Card  
                       key={data.id}
                         name={data.currency.toUpperCase()}
                         kod={data.code}
@@ -46,7 +47,7 @@ class CurrencyClass extends React.Component {
                        
                       >
                        
-                      </CurrencyList>
+                      </Card>
 
                       {/* Nazwa waluty:{data.currency},Kod waluty  {data.code}, Kurs średni waluty{data.mid} */}
                     </div>

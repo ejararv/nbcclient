@@ -1,13 +1,18 @@
-import { auto } from "@popperjs/core";
+
 import React from "react";
 import { Card, CardColumns, Button} from "react-bootstrap";
-import styled from "styled-components";
+import { AiFillHeart } from "react-icons/ai";
 
-export const CurrencyList = ({ name, kod, mid, date }) => {
-  const fav = JSON.stringify({ name, kod, mid });
+export const CurrencyList = ({ name, kod, mid }) => {
 
+  const favCurrenvy = JSON.stringify({ name, kod, mid });
+
+  
+
+  
   const addToFavorite = () => {
-    localStorage.setItem(kod, fav);
+
+    localStorage.setItem(kod, favCurrenvy);
   };
 
   const removeFromFavorite = () => {
@@ -21,7 +26,7 @@ export const CurrencyList = ({ name, kod, mid, date }) => {
   return (
    
 
-
+    
     
         
     <CardColumns style={Styles.card}>
@@ -30,8 +35,13 @@ export const CurrencyList = ({ name, kod, mid, date }) => {
           <Card.Title>{name}</Card.Title>
           <Card.Subtitle className="mb-2 text-muted">{kod}</Card.Subtitle>
           <Card.Text>{mid}</Card.Text>
-
-          <Button onClick={addToFavorite}>Dodaj do obserwowanych</Button>
+          <Button onClick={addToFavorite}
+             >
+         <AiFillHeart style={{ color : "red"}}/>
+         </Button>
+         <Button onClick={removeAll}> remove all</Button>
+              
+          
          
         </Card.Body>
       </Card>
