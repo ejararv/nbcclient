@@ -1,6 +1,9 @@
 import React from "react";
-import { CurrencyList } from "./CurrencyList";
-import Card from './Card'
+import Card from "./Card";
+
+const removeAll = () => {
+  localStorage.clear();
+};
 
 class CurrencyClass extends React.Component {
   constructor(props) {
@@ -26,30 +29,26 @@ class CurrencyClass extends React.Component {
       });
   }
 
- 
-
   render() {
     return (
       <div >
         {this.state.currencies.map((item, no) => (
           <th key={`${item.table}${no}`}>
             <div>
-              <div>
-                Data publikacji: {item.effectiveDate}
+              <div >
+                <h3 style={{ fontSize: "50px", color: "silver" }}>
+                  Data publikacji: {item.effectiveDate}
+                </h3>
+                <button onClick={removeAll}>REMOVE</button>
                 <div className="wrapper">
                   {item.rates.map((data) => (
                     <div>
-                      <Card  
-                      key={data.id}
+                      <Card
+                        key={data.id}
                         name={data.currency.toUpperCase()}
                         kod={data.code}
                         mid={data.mid}
-                       
-                      >
-                       
-                      </Card>
-
-                      {/* Nazwa waluty:{data.currency},Kod waluty  {data.code}, Kurs średni waluty{data.mid} */}
+                      ></Card>
                     </div>
                   ))}
                 </div>
