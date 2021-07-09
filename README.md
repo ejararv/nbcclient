@@ -1,7 +1,6 @@
 
 
-# Currencies List    <img src="https://img.shields.io/badge/platform-node-blue.svg?style=flat" alt="platform">
-[Demo](https://reflink.azurewebsites.net)
+# Currencies List    
 
 
 ## General info
