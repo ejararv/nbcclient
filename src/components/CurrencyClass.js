@@ -1,9 +1,8 @@
 import React from "react";
+
 import Card from "./Card";
 
-const removeAll = () => {
-  localStorage.clear();
-};
+
 
 class CurrencyClass extends React.Component {
   constructor(props) {
@@ -11,6 +10,7 @@ class CurrencyClass extends React.Component {
     this.state = {
       currencies: [],
     };
+    this.storage = []
   }
 
   componentDidMount() {
@@ -21,17 +21,26 @@ class CurrencyClass extends React.Component {
       })
       .then((data) => {
         this.setState({ currencies: data });
-        console.log("state ,", this.state.currencies);
+       
       })
 
       .catch((error) => {
         console.log(error);
       });
+
+
+      this.storage = Object.values({...localStorage})
+      this.storage.map(favItem => {
+      console.log(favItem)
+      })
   }
 
   render() {
     return (
       <div >
+        <div>
+          
+        </div>
         {this.state.currencies.map((item, no) => (
           <th key={`${item.table}${no}`}>
             <div>
@@ -39,7 +48,7 @@ class CurrencyClass extends React.Component {
                 <h3 style={{ fontSize: "50px", color: "silver" }}>
                   Data publikacji: {item.effectiveDate}
                 </h3>
-                <button onClick={removeAll}>REMOVE</button>
+               
                 <div className="wrapper">
                   {item.rates.map((data) => (
                     <div>
