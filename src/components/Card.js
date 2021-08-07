@@ -55,6 +55,7 @@ export const Container = styled(animated.div)`
   height: 30vm;
   max-height: 30vh;
   white-space: normal;
+  
 `;
 
 
@@ -78,29 +79,29 @@ const Card = ({ name, kod, mid }) => {
     xys: [0, 0, 1],
     config: { mass: 10, tension: 200, friction: 50 },
   }));
-  const [isFav, setFav] = useState(false);
+
   const [color, setColor] = useState("#c7d2fe66")
 
   
 
   useEffect(() => {
     if(localStorage.getItem(kod) === null){
-      setColor("#c7d2fe66", kod)
-      setFav(true)
+      setColor("#c7d2fe66")
+      
     } else {
       setColor("red")
-      setFav(false)
+      
     }
   })
   
   const Favorite = () => {
     if (localStorage.getItem(kod) === null) {
       localStorage.setItem(kod, JSON.stringify({ name, kod, mid }));
-      setFav(isFav === true);
+      
       setColor("red")
     } else {
       localStorage.removeItem(kod);
-      setFav(isFav === false);
+      
       setColor("#c7d2fe66")
     }
   };
@@ -110,7 +111,7 @@ const Card = ({ name, kod, mid }) => {
   return (
     <ContainerBox>
       <Container
-        onClick={Favorite}
+        
         onMouseMove={({ clientX: x, clientY: y }) =>
           setState({ xys: calc(x, y) })
         }
@@ -120,7 +121,7 @@ const Card = ({ name, kod, mid }) => {
         <StyledH1>{name}</StyledH1>
         <StyledH3>{kod}</StyledH3>
         <StyledH3>{mid}</StyledH3>
-        <BsFillHeartFill style={{color : color}}></BsFillHeartFill>
+        <BsFillHeartFill style={{color : color}} onClick={Favorite}></BsFillHeartFill>
       </Container>
     </ContainerBox>
   );

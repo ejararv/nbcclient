@@ -5,12 +5,13 @@ import Card from "./Card";
 
 
 class CurrencyClass extends React.Component {
-  constructor(props) {
+  constructor(props ) {
     super(props);
     this.state = {
       currencies: [],
     };
-    this.storage = []
+    this.isFav = props.isFav
+    
   }
 
   componentDidMount() {
@@ -28,18 +29,13 @@ class CurrencyClass extends React.Component {
         console.log(error);
       });
 
-
-      this.storage = Object.values({...localStorage})
-      this.storage.map(favItem => {
-      console.log(favItem)
-      })
+      
   }
 
   render() {
     return (
       <div >
         <div>
-          
         </div>
         {this.state.currencies.map((item, no) => (
           <th key={`${item.table}${no}`}>

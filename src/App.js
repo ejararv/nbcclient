@@ -1,7 +1,7 @@
 import React from "react";
 import "./App.css";
 import CurrencyClass from "./components/CurrencyClass";
-import { Favorites } from "./components/Favorites";
+
 
 function App() {
   return (
@@ -12,7 +12,7 @@ function App() {
       style={{
         width: "100%",
         height: "100%",
-        backgroundColor: "gray" ,
+        background: "linear-gradient(#0F2027,#203A43,#2C5364)", 
         backgroundPosition: "center",
         backgroundSize: "cover",
         backgroundRepeat: "no-repeat",
