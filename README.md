@@ -4,7 +4,8 @@
 
 
 ## General info
-Simple React app with currencies
+Simple React app with currencies.
+Animated cards, Add to favorites(localStorage)
 
 
 ## Technologies Used:
