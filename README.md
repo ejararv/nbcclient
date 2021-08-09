@@ -7,6 +7,7 @@
 Simple React app with currencies.
 Animated cards, Add to favorites(localStorage)
 
+![Demonstration](ReactApp_waluta.gif)
 
 ## Technologies Used:
 1.  [React](https://github.com/facebook/react)
